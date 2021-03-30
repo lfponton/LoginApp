@@ -22,8 +22,8 @@ public abstract class LoginModelBase implements LoginModel {
         support.addPropertyChangeListener(name, listener);
     }
 
-    // this method is used to pupulate my dummy database with modelimpls few hardcoded users.
-    public void populateModelWithDummyusers() {
+    // this method is used to populate my dummy database with modelimpls few hardcoded users.
+    public void populateModelWithDummyUsers() {
         User[] u = {
                 new User("Troels", "Troels1"),
                 new User("Steffen", "Steffen1"),
