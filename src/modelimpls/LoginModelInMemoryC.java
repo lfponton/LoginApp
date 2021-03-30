@@ -13,7 +13,7 @@ public class LoginModelInMemoryC extends LoginModelBase {
     // such information would be in a database, or on the server.
 
     public LoginModelInMemoryC() {
-        populateModelWithDummyusers();
+        populateModelWithDummyUsers();
     }
 
     @Override
