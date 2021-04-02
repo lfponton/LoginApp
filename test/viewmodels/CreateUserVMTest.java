@@ -25,20 +25,19 @@ class CreateUserVMTest
     model.populateModelWithDummyUsers();
     createUserVM = new CreateUserVM(model);
 
-    createUserVM.usernameProperty().bindBidirectional(username);
-    createUserVM.passwordProperty().bindBidirectional(password);
-    createUserVM.passwordAgainProperty().bindBidirectional(passwordAgain);
-    createUserVM.createUserResultProperty().bindBidirectional(result);
-
+    username.bindBidirectional(createUserVM.usernameProperty());
+    password.bindBidirectional(createUserVM.passwordProperty());
+    passwordAgain.bindBidirectional(createUserVM.passwordAgainProperty());
+    result.bind(createUserVM.createUserResultProperty());
   }
 
   // Tests for creating a user
   @Test public void createValidUser()
   {
     // act
-    username.setValue("Luis");
-    password.setValue("123456Az");
-    passwordAgain.setValue("123456Az");
+    username.set("Luis");
+    password.set("123456Az");
+    passwordAgain.set("123456Az");
     createUserVM.attemptCreateUser();
 
     // assert
@@ -48,9 +47,9 @@ class CreateUserVMTest
   @Test public void createUserEmptyName()
   {
     // act
-    username.setValue(null);
-    password.setValue("123456Az");
-    passwordAgain.setValue("123456Az");
+    username.set(null);
+    password.set("123456Az");
+    passwordAgain.set("123456Az");
     createUserVM.attemptCreateUser();
 
     // assert
